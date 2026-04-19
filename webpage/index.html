@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santal Linen — Ritualwash</title>
+<meta name="description" content="A concentrated luxury laundry detergent with warm sandalwood, clean linen, and soft musk. 32 loads per bottle. Dermatologist-tested, made in the USA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EE;
+    --warm-white: #FDFAF7;
+    --sand: #E8DDD0;
+    --stone: #C4B5A5;
+    --bark: #8B7355;
+    --deep: #2C2420;
+    --text: #3A3028;
+    --muted: #7A6E65;
+    --accent: #9C7B4E;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--warm-white);
+    color: var(--text);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ANNOUNCE BAR */
+  .announce {
+    background: var(--deep);
+    color: var(--sand);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--sand);
+    background: var(--warm-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--deep);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--deep); }
+
+  /* HERO GRID */
+  .pdp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: calc(100vh - 100px);
+  }
+
+  /* IMAGE COLUMN */
+  .image-col {
+    position: sticky;
+    top: 61px;
+    height: calc(100vh - 61px);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px;
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .img-main {
+    flex: 1;
+    overflow: hidden;
+  }
+  .img-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.6s ease;
+  }
+  .img-main img:hover { transform: scale(1.02); }
+  .img-thumbs {
+    display: flex;
+    gap: 4px;
+    height: 80px;
+  }
+  .img-thumbs img {
+    flex: 1;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  .img-thumbs img:hover,
+  .img-thumbs img.active { opacity: 1; }
+
+  /* INFO COLUMN */
+  .info-col {
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 580px;
+  }
+
+  .brand-name {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .product-name {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--deep);
+    letter-spacing: -0.01em;
+  }
+
+  .scent-desc {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .star-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .stars { color: var(--accent); font-size: 15px; letter-spacing: 2px; }
+  .star-text { font-size: 14px; color: var(--muted); }
+
+  .price-block { display: flex; align-items: baseline; gap: 12px; }
+  .price {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 400;
+    color: var(--deep);
+  }
+  .price-sub { font-size: 14px; color: var(--muted); letter-spacing: 0.04em; }
+
+  .divider { height: 1px; background: var(--sand); }
+
+  .note-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pill {
+    font-size: 13px;
+    padding: 6px 16px;
+    border: 1px solid var(--stone);
+    border-radius: 20px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .qty-row { display: flex; align-items: center; gap: 16px; }
+  .qty-label { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .qty-ctrl {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--stone);
+    border-radius: 2px;
+  }
+  .qbtn {
+    width: 40px; height: 40px;
+    background: none; border: none; cursor: pointer;
+    font-size: 18px; color: var(--text);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+  }
+  .qbtn:hover { background: var(--cream); }
+  .qnum { width: 40px; text-align: center; font-size: 14px; color: var(--deep); }
+
+  .shipping-nudge {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--cream);
+    border-left: 2px solid var(--accent);
+    border-radius: 0;
+    font-family: var(--serif);
+    font-size: 15px;
+    font-style: italic;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* BUY BUTTON CONTAINER */
+  .buy-section { display: flex; flex-direction: column; gap: 10px; }
+
+  /* SHOPIFY BUY BUTTON GOES HERE — styles below normalize it */
+  #shopify-buy-btn-wrapper .shopify-buy__btn {
+    width: 100% !important;
+    background: var(--deep) !important;
+    border-radius: 2px !important;
+    padding: 16px !important;
+    font-family: var(--sans) !important;
+    font-size: 13px !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    font-weight: 400 !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background 0.2s !important;
+  }
+  #shopify-buy-btn-wrapper .shopify-buy__btn:hover {
+    background: var(--bark) !important;
+  }
+
+  /* Fallback button shown until Shopify script loads */
+  .btn-fallback {
+    width: 100%;
+    padding: 16px;
+    background: var(--deep);
+    color: var(--cream);
+    border: none;
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: none;
+  }
+
+  .trust-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .trust-pill {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 5px 12px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+
+  /* SECTIONS BELOW FOLD */
+  .full-section {
+    padding: 80px 48px;
+    border-top: 1px solid var(--sand);
+  }
+  .full-section.alt { background: var(--cream); }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--deep);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .section-body {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.85;
+    color: var(--text);
+    max-width: 640px;
+  }
+
+  /* WHY GRID */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--sand);
+    border: 1px solid var(--sand);
+    margin-top: 48px;
+  }
+  .why-card {
+    background: var(--warm-white);
+    padding: 36px 32px;
+  }
+  .why-num {
+    font-family: var(--serif);
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--stone);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .why-title {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .why-body {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* SCENT STORY */
+  .scent-quote {
+    border-left: 2px solid var(--accent);
+    padding: 24px 32px;
+    margin: 32px 0;
+    max-width: 680px;
+  }
+  .scent-quote p {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--deep);
+  }
+
+  /* HOW TO USE */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 680px;
+    margin-top: 32px;
+    border: 1px solid var(--sand);
+  }
+  .step {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--sand);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    width: 64px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--stone);
+    border-right: 1px solid var(--sand);
+    flex-shrink: 0;
+  }
+  .step-content { padding: 20px 24px; }
+  .step-title {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--deep);
+    margin-bottom: 6px;
+  }
+  .step-desc {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  /* DETAILS */
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--sand);
+    border: 1px solid var(--sand);
+    margin-top: 32px;
+  }
+  .det {
+    background: var(--warm-white);
+    padding: 20px 24px;
+  }
+  .det-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 6px;
+  }
+  .det-val {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--deep);
+  }
+
+  /* BUNDLE */
+  .bundle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 720px;
+    margin-top: 32px;
+  }
+  .bundle-card {
+    padding: 28px;
+    border: 1px solid var(--sand);
+    cursor: pointer;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+  .bundle-card:hover { border-color: var(--stone); }
+  .bundle-card.featured { border-color: var(--accent); }
+  .bundle-badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    background: var(--accent);
+    color: var(--warm-white);
+    margin-bottom: 12px;
+    border-radius: 1px;
+  }
+  .bundle-name {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--deep);
+    margin-bottom: 8px;
+  }
+  .bundle-desc {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .bundle-price {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--deep);
+  }
+  .bundle-save {
+    font-size: 11px;
+    color: var(--accent);
+    margin-left: 8px;
+  }
+
+  /* REVIEWS */
+  .rating-bar-section {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--sand);
+    max-width: 720px;
+  }
+  .big-score {
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .big-num {
+    font-family: var(--serif);
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--deep);
+    line-height: 1;
+  }
+  .big-stars { color: var(--accent); font-size: 14px; letter-spacing: 2px; margin: 6px 0; }
+  .big-count { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+  .bar-rows { flex: 1; display: flex; flex-direction: column; gap: 7px; padding-top: 8px; }
+  .bar-row { display: flex; align-items: center; gap: 10px; }
+  .bar-lbl { font-size: 12px; color: var(--muted); width: 16px; text-align: right; flex-shrink: 0; }
+  .bar-track {
+    flex: 1; height: 4px;
+    background: var(--sand);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .bar-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+  .bar-pct { font-size: 11px; color: var(--muted); width: 28px; }
+
+  .reviews-list { display: flex; flex-direction: column; gap: 0; max-width: 720px; }
+  .review {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--sand);
+  }
+  .review:last-child { border-bottom: none; }
+  .rev-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
+  .rev-name { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep); }
+  .rev-date { font-size: 11px; color: var(--stone); }
+  .rev-stars { color: var(--accent); font-size: 12px; letter-spacing: 1px; margin-bottom: 8px; }
+  .rev-title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--deep);
+    margin-bottom: 6px;
+  }
+  .rev-body {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .rev-verify { font-size: 12px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 10px; }
+
+  /* FAQ */
+  .faq-list { max-width: 680px; margin-top: 32px; }
+  .faq-item { border-bottom: 1px solid var(--sand); }
+  .faq-q {
+    width: 100%; padding: 20px 0;
+    background: none; border: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--sans);
+    font-size: 15px; font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--deep);
+    text-align: left;
+  }
+  .faq-icon { font-size: 22px; color: var(--stone); transition: transform 0.2s; }
+  .faq-icon.open { transform: rotate(45deg); }
+  .faq-a {
+    display: none;
+    padding: 0 0 20px;
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .faq-a.open { display: block; }
+
+  /* STICKY BAR */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--deep);
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 200;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  .sticky-bar.visible { transform: translateY(0); }
+  .sticky-info .sticky-product { font-family: var(--serif); font-size: 16px; color: var(--cream); }
+  .sticky-info .sticky-price { font-size: 11px; color: var(--stone); letter-spacing: 0.08em; margin-top: 2px; }
+  .sticky-cta {
+    padding: 12px 32px;
+    background: var(--accent);
+    color: var(--warm-white);
+    border: none;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    border-radius: 1px;
+  }
+  .sticky-cta:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    background: var(--deep);
+    color: var(--stone);
+    padding: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #3A3028;
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--cream);
+    letter-spacing: 0.06em;
+  }
+  .footer-copy { font-size: 11px; letter-spacing: 0.08em; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .pdp-grid { grid-template-columns: 1fr; }
+    .image-col { position: relative; top: auto; height: 100vw; min-height: 340px; }
+    .img-main img { object-position: center top; }
+    .img-thumbs { height: 68px; }
+    .info-col { padding: 32px 24px; max-width: 100%; }
+    .product-name { font-size: 38px; }
+    .scent-desc { font-size: 16px; }
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .full-section { padding: 48px 20px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .details-grid { grid-template-columns: repeat(2, 1fr); }
+    .bundle-grid { grid-template-columns: 1fr; }
+    .rating-bar-section { flex-direction: column; gap: 20px; }
+    .bar-rows { width: 100%; }
+    .bar-track { flex: 1; }
+    .big-score { width: 100%; display: flex; flex-direction: column; align-items: center; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+    .sticky-bar { padding: 12px 20px; }
+    .sticky-info .sticky-product { font-size: 13px; }
+    .sticky-info .sticky-price { font-size: 10px; }
+    .sticky-cta { padding: 12px 20px; font-size: 10px; }
+    .section-title { font-size: 30px; }
+    .section-body { font-size: 17px; }
+    .scent-quote p { font-size: 17px; }
+    .why-body { font-size: 16px; }
+    .step-desc { font-size: 16px; }
+    .rev-body { font-size: 16px; }
+    .faq-a { font-size: 16px; }
+    .rev-stars { font-size: 15px; letter-spacing: 2px; }
+    .rev-title { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="announce">Free shipping on orders over $45 — buy 2 bottles and shipping is on us &nbsp;·&nbsp; Made in the USA &nbsp;·&nbsp; 30-day guarantee</div>
+
+<nav>
+  <a href="#" class="nav-logo">Ritualwash</a>
+  <ul class="nav-links">
+    <li><a href="#scent">The scent</a></li>
+    <li><a href="#details">Details</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</nav>
+
+<div class="pdp-grid">
+  <!-- IMAGE COLUMN -->
+  <div class="image-col">
+    <div class="img-main">
+      <img id="main-img"
+        src="images/hero.jpg"
+        alt="Ritualwash Santal Linen luxury laundry detergent bottle surrounded by warm botanicals">
+    </div>
+    <div class="img-thumbs">
+      <img src="images/hero.jpg"      alt="Hero shot" class="active" onclick="switchImg(this, 'images/hero.jpg')">
+      <img src="images/lifestyle.jpg" alt="Lifestyle" onclick="switchImg(this, 'images/lifestyle.jpg')">
+      <img src="images/flatlay.jpg"   alt="Flat lay"  onclick="switchImg(this, 'images/flatlay.jpg')">
+      <img src="images/pour.jpg"      alt="Pour shot" onclick="switchImg(this, 'images/pour.jpg')">
+    </div>
+  </div>
+
+  <!-- INFO COLUMN -->
+  <div class="info-col">
+    <div>
+      <p class="brand-name">Ritualwash</p>
+      <h1 class="product-name">Santal<br>Linen</h1>
+    </div>
+
+    <p class="scent-desc">warm wood &nbsp;·&nbsp; clean linen &nbsp;·&nbsp; soft musk</p>
+
+    <div class="star-line">
+      <span class="stars">★★★★★</span>
+      <span class="star-text">4.9 &nbsp;·&nbsp; 124 reviews</span>
+    </div>
+
+    <div class="price-block">
+      <span class="price" id="display-price">$26.00</span>
+      <span class="price-sub" id="price-sub-line">33.8 fl oz &nbsp;·&nbsp; 32 loads &nbsp;·&nbsp; $0.81 per wash</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div>
+      <p style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Scent notes</p>
+      <div class="note-pills">
+        <span class="pill">Sandalwood</span>
+        <span class="pill">Vanilla</span>
+        <span class="pill">Green Tea</span>
+        <span class="pill">Frankincense</span>
+        <span class="pill">Citron</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="qty-row">
+      <span class="qty-label">Qty</span>
+      <div class="qty-ctrl">
+        <button class="qbtn" onclick="adj(-1)">−</button>
+        <span class="qnum" id="qty">1</span>
+        <button class="qbtn" onclick="adj(1)">+</button>
+      </div>
+    </div>
+
+    <div class="shipping-nudge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Add a second bottle and shipping is free — two bottles, $52, delivered.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         SHOPIFY BUY BUTTON — REPLACE THIS COMMENT BLOCK
+         
+         Step 1: In Shopify admin go to:
+                 Sales Channels > Buy Button
+         Step 2: Click "Create a Buy Button"
+         Step 3: Select "Product Button" > choose Santal Linen
+         Step 4: Under Style, set button text to "Add to ritual"
+         Step 5: Click "Generate code" and copy the two
+                 <script> tags Shopify gives you
+         Step 6: Paste them here, replacing this comment
+         ═══════════════════════════════════════════════════ -->
+    <div class="buy-section">
+      <div id="shopify-buy-btn-wrapper">
+        <!-- PASTE SHOPIFY BUY BUTTON CODE HERE -->
+        <button class="btn-fallback" style="display:block">Add to ritual — $0.81 per wash</button>
+      </div>
+    </div>
+
+    <div class="trust-pills">
+      <span class="trust-pill">Free shipping over $45</span>
+      <span class="trust-pill">Made in USA</span>
+      <span class="trust-pill">Skin-safe formula</span>
+      <span class="trust-pill">30-day guarantee</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHY RITUALWASH -->
+<section class="full-section alt" id="why">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="section-eyebrow">Why ritualwash</p>
+    <h2 class="section-title">Laundry day,<br>redefined.</h2>
+    <p class="section-body">Most detergents clean your clothes. Santal Linen makes you look forward to doing it. A concentrated formula that carries a real fragrance — the kind of warm, woody scent usually reserved for niche perfumeries.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <p class="why-title">A scent worth noticing</p>
+        <p class="why-body">Inspired by warm sandalwood and clean dry linen. The kind of scent people ask you about — then can't believe it's your laundry.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <p class="why-title">Concentrated formula</p>
+        <p class="why-body">No water padding, no synthetic fillers. One bottle does 32 full loads. At $0.81 a load, it costs less than your morning coffee.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <p class="why-title">Skin-safe, always</p>
+        <p class="why-body">Dermatologist-tested and free from harsh irritants. Safe for the fabrics closest to your skin — your sheets, your underwear, your favourite basics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENT STORY -->
+<section class="full-section" id="scent">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="section-eyebrow">The scent</p>
+    <h2 class="section-title">Warm wood.<br>Clean linen.<br>Soft musk.</h2>
+    <div class="scent-quote">
+      <p>Santal Linen opens with a whisper of citron and green tea — fresh, clean, immediate. The heart settles into something warmer: soft chamomile, a thread of rosemary. Then the base arrives and stays — sandalwood, vanilla, frankincense. The kind of warmth that feels expensive without trying.</p>
+    </div>
+    <p class="section-body">If you love warm woody fragrances — the kind worn by people who shop at niche perfumeries — this was made for your laundry.</p>
+    <div style="margin-top:40px;overflow:hidden;border-radius:2px">
+      <img src="images/flatlay.jpg" alt="Santal Linen scent ingredients — sandalwood, vanilla, chamomile on linen" style="width:100%;height:480px;object-fit:cover;object-position:center;display:block">
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="full-section alt">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="section-eyebrow">How to use</p>
+    <h2 class="section-title">The ritual.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <p class="step-title">Measure</p>
+          <p class="step-desc">Use the cap to measure — 1.5 oz to the fill line for a standard load. For large or heavily soiled loads, fill to the top.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <p class="step-title">Add to drum or dispenser</p>
+          <p class="step-desc">Pour directly into the drum before adding clothes, or into the detergent compartment. Works with all HE and standard machines.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <p class="step-title">Wash as normal</p>
+          <p class="step-desc">Any temperature, any cycle. The scent is designed to hold through the wash and linger on fabric for days — not just the first wear.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <p class="step-title">The ritual part</p>
+          <p class="step-desc">Open the washer. Notice the scent. That's the part everyone forgets laundry is allowed to feel like.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="full-section" id="details">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="section-eyebrow">Product details</p>
+    <h2 class="section-title">Everything you<br>need to know.</h2>
+    <div class="details-grid">
+      <div class="det"><p class="det-label">Size</p><p class="det-val">33.8 fl oz / 1L</p></div>
+      <div class="det"><p class="det-label">Loads per bottle</p><p class="det-val">Up to 32 loads</p></div>
+      <div class="det"><p class="det-label">Cost per load</p><p class="det-val">$0.81</p></div>
+      <div class="det"><p class="det-label">Machine type</p><p class="det-val">HE + standard</p></div>
+      <div class="det"><p class="det-label">Scent family</p><p class="det-val">Warm woody · fresh</p></div>
+      <div class="det"><p class="det-label">Formula</p><p class="det-val">Concentrated, skin-safe</p></div>
+      <div class="det"><p class="det-label">Origin</p><p class="det-val">Made in the USA</p></div>
+      <div class="det"><p class="det-label">Tested</p><p class="det-val">Dermatologist-tested</p></div>
+      <div class="det"><p class="det-label">Fabric safe</p><p class="det-val">Colours + delicates</p></div>
+      <div class="det"><p class="det-label">Scent longevity</p><p class="det-val">4–7 days on fabric</p></div>
+      <div class="det"><p class="det-label">Free from</p><p class="det-val">SLS, parabens, brighteners</p></div>
+      <div class="det"><p class="det-label">Scent intensity</p><p class="det-val">Medium — not overpowering</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="full-section" id="reviews" style="border-top:none;padding-top:0">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="section-eyebrow">What people are saying</p>
+    <h2 class="section-title">124 rituals<br>started.</h2>
+    <div class="rating-bar-section">
+      <div class="big-score">
+        <div class="big-num">4.9</div>
+        <div class="big-stars">★★★★★</div>
+        <div class="big-count">124 reviews</div>
+      </div>
+      <div class="bar-rows">
+        <div class="bar-row"><span class="bar-lbl">5</span><div class="bar-track"><div class="bar-fill" style="width:89%"></div></div><span class="bar-pct">89%</span></div>
+        <div class="bar-row"><span class="bar-lbl">4</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="bar-pct">8%</span></div>
+        <div class="bar-row"><span class="bar-lbl">3</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span class="bar-pct">2%</span></div>
+        <div class="bar-row"><span class="bar-lbl">2</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span class="bar-pct">1%</span></div>
+        <div class="bar-row"><span class="bar-lbl">1</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span class="bar-pct">0%</span></div>
+      </div>
+    </div>
+    <div class="reviews-list">
+      <div class="review">
+        <div class="rev-header"><span class="rev-name">Sarah M.</span><span class="rev-date">March 2025</span></div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-title">"My partner thinks I bought a new candle"</p>
+        <p class="rev-body">I bought one bottle as a treat and immediately ordered two more before it ran out. My whole closet smells incredible. The scent isn't perfumey or overpowering — it's just warm and clean and sophisticated. Everyone who comes over asks what I'm diffusing.</p>
+        <p class="rev-verify">✓ Verified purchase</p>
+      </div>
+      <div class="review">
+        <div class="rev-header"><span class="rev-name">Jenna R.</span><span class="rev-date">February 2025</span></div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-title">"Finally a detergent that feels intentional"</p>
+        <p class="rev-body">I've tried The Laundress and a few others. This is better and half the price. The scent lasts through multiple wears — I can smell Santal Linen on my sweaters four days after washing. That's unheard of with any other detergent I've used.</p>
+        <p class="rev-verify">✓ Verified purchase</p>
+      </div>
+      <div class="review">
+        <div class="rev-header"><span class="rev-name">Aaliya T.</span><span class="rev-date">February 2025</span></div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-title">"Sceptical at $26. Now a convert."</p>
+        <p class="rev-body">I'll be honest — I hesitated. But at 32 loads it works out to less than a dollar a load. And the scent? My sheets smell amazing for the entire week. This is a staple now.</p>
+        <p class="rev-verify">✓ Verified purchase</p>
+      </div>
+      <div class="review">
+        <div class="rev-header"><span class="rev-name">Priya N.</span><span class="rev-date">January 2025</span></div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-title">"Sensitive skin approved"</p>
+        <p class="rev-body">I have really sensitive skin and most scented detergents break me out. Zero issues with this one. The formula is genuinely gentle. And it smells so good I actually look forward to doing laundry now.</p>
+        <p class="rev-verify">✓ Verified purchase</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="full-section alt" id="faq">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="section-eyebrow">Questions answered</p>
+    <h2 class="section-title">Everything you<br>were wondering.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(0)">Does the scent actually last on fabric? <span class="faq-icon" id="fi0">+</span></button>
+        <div class="faq-a" id="fa0">Yes — and this is the thing people are most surprised by. Santal Linen is formulated with fragrance-binding technology that anchors the scent to fibres rather than washing out with the rinse. Most customers report the scent lasting 4–7 days across multiple wears.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(1)">Is it safe for sensitive skin? <span class="faq-icon" id="fi1">+</span></button>
+        <div class="faq-a" id="fa1">Yes. The formula is dermatologist-tested and free from common irritants including SLS, parabens, and optical brighteners. If you have a specific allergy, the full ingredient list is available on request.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(2)">Does it work with HE machines? <span class="faq-icon" id="fi2">+</span></button>
+        <div class="faq-a" id="fa2">Yes — Santal Linen is compatible with all high-efficiency (HE) and standard washing machines. It's low-sudsing and safe for front-loaders and top-loaders alike.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(3)">How many loads does one bottle do? <span class="faq-icon" id="fi3">+</span></button>
+        <div class="faq-a" id="fa3">Up to 32 standard loads per 33.8 fl oz bottle. For large or heavily soiled loads you may use slightly more, so we recommend 28–32 loads as a realistic range.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(4)">What's your return policy? <span class="faq-icon" id="fi4">+</span></button>
+        <div class="faq-a" id="fa4">We offer a 30-day happiness guarantee. If you're not completely satisfied after trying Santal Linen, contact us and we'll make it right — no questions, no hassle.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(5)">Can I use it for delicates and colours? <span class="faq-icon" id="fi5">+</span></button>
+        <div class="faq-a" id="fa5">Yes. The formula is gentle enough for delicates and colour-safe — no optical brighteners that can strip dyed fabrics. Works beautifully on silks, linens, and cottons.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Ritualwash</span>
+  <span class="footer-copy">© 2025 Ritualwash. All rights reserved.</span>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="sticky-bar">
+  <div class="sticky-info">
+    <div class="sticky-product">Santal Linen &nbsp;·&nbsp; Ritualwash</div>
+    <div class="sticky-price">$26.00 &nbsp;·&nbsp; 33.8 fl oz &nbsp;·&nbsp; 32 loads</div>
+  </div>
+  <button class="sticky-cta" onclick="document.querySelector('.info-col').scrollIntoView({behavior:'smooth'})">Add to ritual</button>
+</div>
+
+<script>
+  // Image switcher
+  function switchImg(thumb, src) {
+    document.getElementById('main-img').src = src;
+    document.querySelectorAll('.img-thumbs img').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+  }
+
+  // Qty adjuster with live shipping nudge
+  let qty = 1;
+  const unitPrice = 26;
+  function adj(d) {
+    qty = Math.max(1, qty + d);
+    document.getElementById('qty').textContent = qty;
+    // Show running total in price display, cost per wash stays on button
+    const total = unitPrice * qty;
+    document.getElementById('display-price').textContent = '$' + total.toFixed(2);
+    document.getElementById('price-sub-line').textContent =
+      qty === 1
+        ? '33.8 fl oz · 32 loads · $0.81 per wash'
+        : qty + ' bottles · ' + (qty * 32) + ' loads · $0.81 per wash';
+    const nudge = document.querySelector('.shipping-nudge');
+    if (qty >= 2) {
+      nudge.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12l5 5L20 7"/></svg> Free shipping unlocked — you\'re all set.';
+      nudge.style.color = 'var(--accent)';
+    } else {
+      nudge.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;margin-top:2px"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Add a second bottle and shipping is free — two bottles, $52, delivered.';
+      nudge.style.color = 'var(--muted)';
+    }
+  }
+
+  // FAQ accordion
+  function toggleFaq(i) {
+    const a = document.getElementById('fa' + i);
+    const icon = document.getElementById('fi' + i);
+    const isOpen = a.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(el => el.classList.remove('open'));
+    document.querySelectorAll('.faq-icon').forEach(el => { el.textContent = '+'; el.classList.remove('open'); });
+    if (!isOpen) {
+      a.classList.add('open');
+      icon.textContent = '+';
+      icon.classList.add('open');
+    }
+  }
+
+  // Sticky bar on scroll
+  const stickyBar = document.getElementById('sticky-bar');
+  const infoCol = document.querySelector('.info-col');
+  window.addEventListener('scroll', () => {
+    const rect = infoCol.getBoundingClientRect();
+    if (rect.bottom < 0) {
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>
