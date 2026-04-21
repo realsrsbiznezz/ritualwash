@@ -10,12 +10,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Non-render-blocking font load -->
+<!-- Non-render-blocking font load with display=swap -->
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap"></noscript>
 
+<!-- Fallback fonts while web fonts load — prevents layout shift -->
+<style>
+  body { font-family: Georgia, serif; }
+  .brand-name, .section-eyebrow, .qty-label, .trust-pill, .pill, .step-title, .det-label, .why-title, .rev-name, .rev-date, .faq-q { font-family: system-ui, -apple-system, sans-serif; }
+</style>
+
 <!-- Preload hero image for faster LCP -->
-<link rel="preload" as="image" href="images/hero.webp" type="image/webp">
+<link rel="preload" as="image" href="images/hero.webp" type="image/webp" fetchpriority="high">
 
 <!-- Google Analytics GA4 — deferred -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZQ1HJG3NM"></script>
