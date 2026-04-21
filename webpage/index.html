@@ -1039,11 +1039,13 @@ src="https://www.facebook.com/tr?id=680476448139694&ev=PageView&noscript=1"
     }
   });
 
-  // Image switcher
+  // Image switcher — uses requestAnimationFrame to avoid forced reflow
   function switchImg(thumb, src) {
-    document.getElementById('main-img').src = src;
-    document.querySelectorAll('.img-thumbs img').forEach(t => t.classList.remove('active'));
-    thumb.classList.add('active');
+    requestAnimationFrame(function() {
+      document.getElementById('main-img').src = src;
+      document.querySelectorAll('.img-thumbs img').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    });
   }
 
   // Qty adjuster — updates href on button directly, no JS navigation needed
