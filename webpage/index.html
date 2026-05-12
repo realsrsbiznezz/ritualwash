@@ -161,9 +161,13 @@ src="https://www.facebook.com/tr?id=680476448139694&ev=PageView&noscript=1"
     display: flex;
     gap: 4px;
     height: 80px;
+    overflow: hidden;
+    width: 100%;
   }
   .img-thumbs img {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
+    width: 0;
     object-fit: cover;
     cursor: pointer;
     opacity: 0.6;
@@ -932,7 +936,7 @@ src="https://www.facebook.com/tr?id=680476448139694&ev=PageView&noscript=1"
 <section class="full-section" id="reviews" style="border-top:none;padding-top:0">
   <div style="max-width:1100px;margin:0 auto">
     <p class="section-eyebrow">What people are saying</p>
-    <h2 class="section-title">Early reviews.</h2>
+    <h2 class="section-title">What they're saying.</h2>
     <div class="rating-bar-section">
       <div class="big-score">
         <div class="big-num">4.9</div>
